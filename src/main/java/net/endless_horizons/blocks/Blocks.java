@@ -1,42 +1,50 @@
 package net.endless_horizons.blocks;
 
 import net.endless_horizons.blocks.end_gateway.EndlessEndBlock;
-import net.endless_horizons.blocks.end_gateway.EndlessEndEntity;
+import net.endless_horizons.blocks.sky.EndlessSkyBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
-import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 import static net.endless_horizons.EndlessHorizons.MOD_ID;
 
 
 public class Blocks {
-    public static final Block EndlessWhite = block();
-    public static final Block EndlessOrange = block();
-    public static final Block EndlessMagenta = block();
-    public static final Block EndlessLightBlue = block();
-    public static final Block EndlessYellow = block();
-    public static final Block EndlessLime = block();
-    public static final Block EndlessPink = block();
-    public static final Block EndlessGray = block();
-    public static final Block EndlessLightGray = block();
-    public static final Block EndlessCyan = block();
-    public static final Block EndlessPurple = block();
-    public static final Block EndlessBlue = block();
-    public static final Block EndlessBrown = block();
-    public static final Block EndlessGreen = block();
-    public static final Block EndlessRed = block();
-    public static final Block EndlessBlack = block();
-    public static final Block EndlessEndBlock = new EndlessEndBlock(FabricBlockSettings.of(Material.STONE).strength(1.5f, 6.0f).luminance(15).requiresTool());
+    public static final TagKey<Block> NO_OUTLINE = TagKey.of(RegistryKeys.BLOCK, new Identifier(MOD_ID, "no_outline"));
+
+    private static final Settings blockSettings = FabricBlockSettings.of(Material.STONE).strength(1.5f, 6.0f).luminance(15).requiresTool();
+
+    public static final Block EndlessWhite = new Block(blockSettings);
+    public static final Block EndlessOrange = new Block(blockSettings);
+    public static final Block EndlessMagenta = new Block(blockSettings);
+    public static final Block EndlessLightBlue = new Block(blockSettings);
+    public static final Block EndlessYellow = new Block(blockSettings);
+    public static final Block EndlessLime = new Block(blockSettings);
+    public static final Block EndlessPink = new Block(blockSettings);
+    public static final Block EndlessGray = new Block(blockSettings);
+    public static final Block EndlessLightGray = new Block(blockSettings);
+    public static final Block EndlessCyan = new Block(blockSettings);
+    public static final Block EndlessPurple = new Block(blockSettings);
+    public static final Block EndlessBlue = new Block(blockSettings);
+    public static final Block EndlessBrown = new Block(blockSettings);
+    public static final Block EndlessGreen = new Block(blockSettings);
+    public static final Block EndlessRed = new Block(blockSettings);
+    public static final Block EndlessBlack = new Block(blockSettings);
+    public static final Block EndlessEndBlock = new EndlessEndBlock(blockSettings);
+    public static final Block EndlessSkyBlock = new EndlessSkyBlock(blockSettings);
     //public static final Block EndlessWhiteDoor = doorBlock();
     //public static final Block EndlessOrangeDoor = doorBlock();
     //public static final Block EndlessMagentaDoor = doorBlock();
@@ -107,10 +115,6 @@ public class Blocks {
             .icon(() -> new ItemStack(EndlessWhite))
             .build();
 
-    private static Block block() {
-        return new Block(FabricBlockSettings.of(Material.STONE).strength(1.5f, 6.0f).luminance(15).requiresTool());
-    }
-
     //private static Block doorBlock() {
     //    return new EndlessDoor(FabricBlockSettings.of(Material.STONE).strength(1.5f, 6.0f).luminance(15));
     //}
@@ -152,5 +156,6 @@ public class Blocks {
         register(EndlessRed, "red");
         register(EndlessBlack, "black");
         register(EndlessEndBlock, "end");
+        register(EndlessSkyBlock, "sky");
     }
 }

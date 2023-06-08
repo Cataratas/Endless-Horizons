@@ -1,5 +1,5 @@
 {
-  "itemGroup.endless_horizons.endless_blocks": "Infinity Rooms",
+  "itemGroup.endless_horizons.endless_blocks": "Endless Horizons",
   "block.endless_horizons.endless_white": "Endless White",
   "block.endless_horizons.endless_orange": "Endless Orange",
   "block.endless_horizons.endless_magenta": "Endless Magenta",
@@ -80,5 +80,6 @@
   "block.endless_horizons.endless_green_pressure_plate": "Endless Green Pressure Plate",
   "block.endless_horizons.endless_red_pressure_plate": "Endless Red Pressure Plate",
   "block.endless_horizons.endless_black_pressure_plate": "Endless Black Pressure Plate",
-  "block.endless_horizons.endless_end": "Endless End"
+  "block.endless_horizons.endless_end": "End Block",
+  "block.endless_horizons.endless_sky": "Sky Block"
 }
