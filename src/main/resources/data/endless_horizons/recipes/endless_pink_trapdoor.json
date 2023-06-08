@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "endless_horizons:endless_pink"
+    }
+  },
+  "result": {
+    "item": "endless_horizons:endless_pink_trapdoor",
+    "count": 2
+  }
+}

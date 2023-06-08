@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "endless_horizons",
+  "version": "${version}",
+  "name": "Endless Horizons",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": ""
+  },
+  "license": "MIT",
+  "icon": "assets/endless_horizons/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.endless_horizons.client.EndlessHorizonsClient"
+    ],
+    "main": [
+      "net.endless_horizons.EndlessHorizons"
+    ]
+  },
+  "mixins": [
+    "endless_horizons.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

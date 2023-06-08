@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "endless_horizons:endless_lime"
+    }
+  },
+  "result": {
+    "item": "endless_horizons:endless_lime_pressure_plate"
+  }
+}

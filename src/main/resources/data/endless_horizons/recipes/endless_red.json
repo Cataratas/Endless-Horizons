@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IGI",
+    "GCG",
+    "IGI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:glow_ink_sac"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "C": {
+      "item": "minecraft:red_concrete"
+    }
+  },
+  "result": {
+    "item": "endless_horizons:endless_red",
+    "count": 1
+  }
+}

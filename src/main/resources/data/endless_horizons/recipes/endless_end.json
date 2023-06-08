@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "BEB",
+    " B "
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "B": {
+      "item": "endless_horizons:endless_black"
+    }
+  },
+  "result": {
+    "item": "endless_horizons:endless_end",
+    "count": 1
+  }
+}

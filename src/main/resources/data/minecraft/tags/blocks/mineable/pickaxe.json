@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "endless_horizons:endless_black",
+    "endless_horizons:endless_blue",
+    "endless_horizons:endless_brown",
+    "endless_horizons:endless_cyan",
+    "endless_horizons:endless_gray",
+    "endless_horizons:endless_green",
+    "endless_horizons:endless_light_blue",
+    "endless_horizons:endless_light_gray",
+    "endless_horizons:endless_lime",
+    "endless_horizons:endless_magenta",
+    "endless_horizons:endless_orange",
+    "endless_horizons:endless_pink",
+    "endless_horizons:endless_purple",
+    "endless_horizons:endless_red",
+    "endless_horizons:endless_white",
+    "endless_horizons:endless_yellow",
+    "endless_horizons:endless_end"
+  ]
+}
