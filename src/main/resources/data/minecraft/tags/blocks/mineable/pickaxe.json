@@ -34,6 +34,22 @@
     "endless_horizons:endless_purple_door",
     "endless_horizons:endless_red_door",
     "endless_horizons:endless_white_door",
-    "endless_horizons:endless_yellow_door"
+    "endless_horizons:endless_yellow_trapdoor",
+    "endless_horizons:endless_black_trapdoor",
+    "endless_horizons:endless_blue_trapdoor",
+    "endless_horizons:endless_brown_trapdoor",
+    "endless_horizons:endless_cyan_trapdoor",
+    "endless_horizons:endless_gray_trapdoor",
+    "endless_horizons:endless_green_trapdoor",
+    "endless_horizons:endless_light_blue_trapdoor",
+    "endless_horizons:endless_light_gray_trapdoor",
+    "endless_horizons:endless_lime_trapdoor",
+    "endless_horizons:endless_magenta_trapdoor",
+    "endless_horizons:endless_orange_trapdoor",
+    "endless_horizons:endless_pink_trapdoor",
+    "endless_horizons:endless_purple_trapdoor",
+    "endless_horizons:endless_red_trapdoor",
+    "endless_horizons:endless_white_trapdoor",
+    "endless_horizons:endless_yellow_trapdoor"
   ]
 }

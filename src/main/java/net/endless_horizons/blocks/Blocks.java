@@ -6,11 +6,8 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.*;
 import net.minecraft.block.AbstractBlock.Settings;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSetType;
-import net.minecraft.block.DoorBlock;
-import net.minecraft.block.Material;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
@@ -19,6 +16,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
@@ -34,22 +32,6 @@ public class Blocks {
 
     public static final Block EndlessEndBlock = new EndlessEndBlock(blockSettings);
     public static final Block EndlessSkyBlock = new EndlessSkyBlock(blockSettings);
-    //public static final Block EndlessWhiteTrapdoor = trapdoorBlock();
-    //public static final Block EndlessOrangeTrapdoor = trapdoorBlock();
-    //public static final Block EndlessMagentaTrapdoor = trapdoorBlock();
-    //public static final Block EndlessLightBlueTrapdoor = trapdoorBlock();
-    //public static final Block EndlessYellowTrapdoor = trapdoorBlock();
-    //public static final Block EndlessLimeTrapdoor = trapdoorBlock();
-    //public static final Block EndlessPinkTrapdoor = trapdoorBlock();
-    //public static final Block EndlessGrayTrapdoor = trapdoorBlock();
-    //public static final Block EndlessLightGrayTrapdoor = trapdoorBlock();
-    //public static final Block EndlessCyanTrapdoor = trapdoorBlock();
-    //public static final Block EndlessPurpleTrapdoor = trapdoorBlock();
-    //public static final Block EndlessBlueTrapdoor = trapdoorBlock();
-    //public static final Block EndlessBrownTrapdoor = trapdoorBlock();
-    //public static final Block EndlessGreenTrapdoor = trapdoorBlock();
-    //public static final Block EndlessRedTrapdoor = trapdoorBlock();
-    //public static final Block EndlessBlackTrapdoor = trapdoorBlock();
     //public static final Block EndlessWhiteButton = buttonBlock();
     //public static final Block EndlessOrangeButton = buttonBlock();
     //public static final Block EndlessMagentaButton = buttonBlock();
@@ -88,10 +70,6 @@ public class Blocks {
             .icon(() -> new ItemStack(coloredBlocks.get(DyeColor.WHITE)))
             .build();
 
-    //private static Block trapdoorBlock() {
-    //    return new EndlessTrapdoor(FabricBlockSettings.of(Material.STONE).strength(1.5f, 6.0f).luminance(15));
-    //}
-
     //private static Block buttonBlock() {
     //    return new EndlessButton(FabricBlockSettings.of(Material.DECORATION).strength(0.5f).noCollision().luminance(15));
     //}
@@ -119,8 +97,11 @@ public class Blocks {
         register(EndlessSkyBlock, "sky");
 
         for (var color : DyeColor.values()) {
-            DoorBlock doorBlock = new DoorBlock(blockSettings.mapColor(color.getMapColor()), BlockSetType.STONE);
-            register(doorBlock, color.getName() + "_door");
+            register(new DoorBlock(blockSettings.mapColor(color.getMapColor()), BlockSetType.STONE), color.getName() + "_door");
+        }
+
+        for (var color : DyeColor.values()) {
+            register(new TrapdoorBlock(blockSettings.mapColor(color.getMapColor()), BlockSetType.STONE), color.getName() + "_trapdoor");
         }
     }
 }
