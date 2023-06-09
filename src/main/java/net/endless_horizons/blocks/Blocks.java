@@ -32,33 +32,10 @@ public class Blocks {
 
     public static final Block EndlessEndBlock = new EndlessEndBlock(blockSettings);
     public static final Block EndlessSkyBlock = new EndlessSkyBlock(blockSettings);
-    //public static final Block EndlessWhitePressurePlate = pressurePlateBlock();
-    //public static final Block EndlessOrangePressurePlate = pressurePlateBlock();
-    //public static final Block EndlessMagentaPressurePlate = pressurePlateBlock();
-    //public static final Block EndlessLightBluePressurePlate = pressurePlateBlock();
-    //public static final Block EndlessYellowPressurePlate = pressurePlateBlock();
-    //public static final Block EndlessLimePressurePlate = pressurePlateBlock();
-    //public static final Block EndlessPinkPressurePlate = pressurePlateBlock();
-    //public static final Block EndlessGrayPressurePlate = pressurePlateBlock();
-    //public static final Block EndlessLightGrayPressurePlate = pressurePlateBlock();
-    //public static final Block EndlessCyanPressurePlate = pressurePlateBlock();
-    //public static final Block EndlessPurplePressurePlate = pressurePlateBlock();
-    //public static final Block EndlessBluePressurePlate = pressurePlateBlock();
-    //public static final Block EndlessBrownPressurePlate = pressurePlateBlock();
-    //public static final Block EndlessGreenPressurePlate = pressurePlateBlock();
-    //public static final Block EndlessRedPressurePlate = pressurePlateBlock();
-    //public static final Block EndlessBlackPressurePlate = pressurePlateBlock();
-
 
     private static final ItemGroup endlessHorizonsGroup = FabricItemGroup.builder(new Identifier(MOD_ID, "endless_blocks"))
             .icon(() -> new ItemStack(coloredBlocks.get(DyeColor.WHITE)))
             .build();
-
-    //private static Block pressurePlateBlock() {
-    //    return new EndlessPressurePlate(PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.of(Material.STONE)
-    //            .strength(0.5f).noCollision().luminance(15).requiresTool());
-    //}
-
 
     private static void register(Block block, String name) {
         Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "endless_" + name), block);
@@ -84,6 +61,9 @@ public class Blocks {
         }
         for (var color : DyeColor.values()) {
             register(new ButtonBlock(Settings.of(Material.DECORATION).noCollision().strength(0.5F), BlockSetType.STONE, 20, false), color.getName() + "_button");
+        }
+        for (var color : DyeColor.values()) {
+            register(new PressurePlateBlock(PressurePlateBlock.ActivationRule.MOBS, Settings.of(Material.STONE).requiresTool().noCollision().strength(0.5F), BlockSetType.STONE), color.getName() + "_pressure_plate");
         }
     }
 }

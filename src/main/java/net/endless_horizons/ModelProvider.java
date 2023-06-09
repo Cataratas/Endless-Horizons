@@ -1,11 +1,8 @@
 package net.endless_horizons;
 
-import net.endless_horizons.blocks.models.ButtonModel;
-import net.endless_horizons.blocks.models.DoorModel;
-import net.endless_horizons.blocks.models.TrapdoorModel;
+import net.endless_horizons.blocks.models.*;
 import net.fabricmc.fabric.api.client.model.ModelProviderContext;
 import net.fabricmc.fabric.api.client.model.ModelResourceProvider;
-import net.endless_horizons.blocks.models.BlockModel;
 import net.minecraft.client.render.model.UnbakedModel;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
@@ -26,6 +23,8 @@ public class ModelProvider implements ModelResourceProvider {
                 return new TrapdoorModel(color);
             } else if (identifier.equals(new Identifier(MOD_ID + ":block/endless_" + color + "_button_model"))) {
                 return new ButtonModel(color);
+            } else if (identifier.equals(new Identifier(MOD_ID + ":block/endless_" + color + "_pressure_plate_model"))) {
+                return new PressurePlateModel(color);
             }
         }
         return null;

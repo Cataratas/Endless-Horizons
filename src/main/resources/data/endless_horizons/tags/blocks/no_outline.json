@@ -67,6 +67,22 @@
     "endless_horizons:endless_purple_button",
     "endless_horizons:endless_red_button",
     "endless_horizons:endless_white_button",
-    "endless_horizons:endless_yellow_button"
+    "endless_horizons:endless_yellow_button",
+    "endless_horizons:endless_black_pressure_plate",
+    "endless_horizons:endless_blue_pressure_plate",
+    "endless_horizons:endless_brown_pressure_plate",
+    "endless_horizons:endless_cyan_pressure_plate",
+    "endless_horizons:endless_gray_pressure_plate",
+    "endless_horizons:endless_green_pressure_plate",
+    "endless_horizons:endless_light_blue_pressure_plate",
+    "endless_horizons:endless_light_gray_pressure_plate",
+    "endless_horizons:endless_lime_pressure_plate",
+    "endless_horizons:endless_magenta_pressure_plate",
+    "endless_horizons:endless_orange_pressure_plate",
+    "endless_horizons:endless_pink_pressure_plate",
+    "endless_horizons:endless_purple_pressure_plate",
+    "endless_horizons:endless_red_pressure_plate",
+    "endless_horizons:endless_white_pressure_plate",
+    "endless_horizons:endless_yellow_pressure_plate"
   ]
 }
