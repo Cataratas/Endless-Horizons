@@ -5,6 +5,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.renderer.v1.Renderer;
 import net.fabricmc.fabric.api.renderer.v1.RendererAccess;
+import net.fabricmc.fabric.api.renderer.v1.material.BlendMode;
 import net.fabricmc.fabric.api.renderer.v1.material.RenderMaterial;
 import net.fabricmc.fabric.api.renderer.v1.mesh.Mesh;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MeshBuilder;
@@ -13,6 +14,7 @@ import net.fabricmc.fabric.api.renderer.v1.mesh.QuadEmitter;
 import net.fabricmc.fabric.api.renderer.v1.model.FabricBakedModel;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.model.*;
 import net.minecraft.client.render.model.json.JsonUnbakedModel;
@@ -22,6 +24,7 @@ import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -44,14 +47,10 @@ public class BlockModel implements UnbakedModel, BakedModel, FabricBakedModel {
     protected ModelTransformation transformation;
     protected Identifier DefaultModel = new Identifier("minecraft:block/block");
 
-    public BlockModel(String color) {
+    public BlockModel(DyeColor color) {
         this.SPRITE_IDS = new SpriteIdentifier[] {
                 new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(MOD_ID + ":block/endless_" + color))
         };
-    }
-
-    public BlockModel() {
-
     }
 
     public Collection<Identifier> getModelDependencies() {
@@ -61,10 +60,6 @@ public class BlockModel implements UnbakedModel, BakedModel, FabricBakedModel {
     @Override
     public void setParents(Function<Identifier, UnbakedModel> modelLoader) {
 
-    }
-
-    public Collection<SpriteIdentifier> getTextureDependencies(Function<Identifier, UnbakedModel> unbakedModelGetter, Set<Pair<String, String>> unresolvedTextureReferences) {
-        return Arrays.asList(SPRITE_IDS);
     }
 
     @Override

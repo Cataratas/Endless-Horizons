@@ -1,6 +1,5 @@
 package net.endless_horizons.mixins;
 
-import net.minecraft.block.Block;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.util.hit.BlockHitResult;
@@ -22,9 +21,9 @@ public class NoOutline {
 
     @Inject(method = "shouldRenderBlockOutline", at = @At(value = "HEAD", target = "Lnet/minecraft/client/render/GameRenderer;shouldRenderBlockOutline()Z"), cancellable = true)
     public void shouldRenderBlockOutline(CallbackInfoReturnable<Boolean> cir) {
+        assert this.client.targetedEntity == client.player;
         HitResult hitResult = this.client.crosshairTarget;
-        if (hitResult != null) {
-            assert this.client.world != null;
+        if (hitResult != null && this.client.world != null && hitResult.getType() == HitResult.Type.BLOCK) {
             if (this.client.world.getBlockState(((BlockHitResult) hitResult).getBlockPos()).isIn(NO_OUTLINE)) {
                 cir.setReturnValue(false);
             }
