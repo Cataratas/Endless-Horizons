@@ -32,22 +32,6 @@ public class Blocks {
 
     public static final Block EndlessEndBlock = new EndlessEndBlock(blockSettings);
     public static final Block EndlessSkyBlock = new EndlessSkyBlock(blockSettings);
-    //public static final Block EndlessWhiteButton = buttonBlock();
-    //public static final Block EndlessOrangeButton = buttonBlock();
-    //public static final Block EndlessMagentaButton = buttonBlock();
-    //public static final Block EndlessLightBlueButton = buttonBlock();
-    //public static final Block EndlessYellowButton = buttonBlock();
-    //public static final Block EndlessLimeButton = buttonBlock();
-    //public static final Block EndlessPinkButton = buttonBlock();
-    //public static final Block EndlessGrayButton = buttonBlock();
-    //public static final Block EndlessLightGrayButton = buttonBlock();
-    //public static final Block EndlessCyanButton = buttonBlock();
-    //public static final Block EndlessPurpleButton = buttonBlock();
-    //public static final Block EndlessBlueButton = buttonBlock();
-    //public static final Block EndlessBrownButton = buttonBlock();
-    //public static final Block EndlessGreenButton = buttonBlock();
-    //public static final Block EndlessRedButton = buttonBlock();
-    //public static final Block EndlessBlackButton = buttonBlock();
     //public static final Block EndlessWhitePressurePlate = pressurePlateBlock();
     //public static final Block EndlessOrangePressurePlate = pressurePlateBlock();
     //public static final Block EndlessMagentaPressurePlate = pressurePlateBlock();
@@ -69,10 +53,6 @@ public class Blocks {
     private static final ItemGroup endlessHorizonsGroup = FabricItemGroup.builder(new Identifier(MOD_ID, "endless_blocks"))
             .icon(() -> new ItemStack(coloredBlocks.get(DyeColor.WHITE)))
             .build();
-
-    //private static Block buttonBlock() {
-    //    return new EndlessButton(FabricBlockSettings.of(Material.DECORATION).strength(0.5f).noCollision().luminance(15));
-    //}
 
     //private static Block pressurePlateBlock() {
     //    return new EndlessPressurePlate(PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.of(Material.STONE)
@@ -99,9 +79,11 @@ public class Blocks {
         for (var color : DyeColor.values()) {
             register(new DoorBlock(blockSettings.mapColor(color.getMapColor()), BlockSetType.STONE), color.getName() + "_door");
         }
-
         for (var color : DyeColor.values()) {
             register(new TrapdoorBlock(blockSettings.mapColor(color.getMapColor()), BlockSetType.STONE), color.getName() + "_trapdoor");
+        }
+        for (var color : DyeColor.values()) {
+            register(new ButtonBlock(Settings.of(Material.DECORATION).noCollision().strength(0.5F), BlockSetType.STONE, 20, false), color.getName() + "_button");
         }
     }
 }

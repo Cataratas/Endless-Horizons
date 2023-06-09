@@ -1,5 +1,6 @@
 package net.endless_horizons;
 
+import net.endless_horizons.blocks.models.ButtonModel;
 import net.endless_horizons.blocks.models.DoorModel;
 import net.endless_horizons.blocks.models.TrapdoorModel;
 import net.fabricmc.fabric.api.client.model.ModelProviderContext;
@@ -23,6 +24,8 @@ public class ModelProvider implements ModelResourceProvider {
                 return new DoorModel(color);
             } else if (identifier.equals(new Identifier(MOD_ID + ":block/endless_" + color + "_trapdoor_model"))) {
                 return new TrapdoorModel(color);
+            } else if (identifier.equals(new Identifier(MOD_ID + ":block/endless_" + color + "_button_model"))) {
+                return new ButtonModel(color);
             }
         }
         return null;
