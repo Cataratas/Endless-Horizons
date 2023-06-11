@@ -1,43 +1,41 @@
 package net.endless_horizons.blocks.sky;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.endless_horizons.blocks.EndlessRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.RunArgs;
 import net.minecraft.client.render.*;
-import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Shadow;
+import net.minecraft.util.math.Vec3d;
 
-import static net.endless_horizons.client.EndlessHorizonsClient.skyRenderLayer;
+import java.util.Objects;
+
+import static net.endless_horizons.client.EndlessHorizonsClient.skyShaderProgram;
 
 
 @Environment(EnvType.CLIENT)
-public class EndlessSkyEntityRenderer implements BlockEntityRenderer<EndlessSkyEntity> {
+public class EndlessSkyEntityRenderer extends EndlessRenderer<EndlessSkyEntity> {
 
     @Override
     public void render(EndlessSkyEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
-        VertexConsumer vertexConsumer = vertexConsumers.getBuffer(skyRenderLayer);
+        RenderSystem.setShader(() -> skyShaderProgram);
 
-        MinecraftClient mc = MinecraftClient.getInstance();
-        Camera camera = mc.gameRenderer.getCamera();
-        WorldRenderer gameRenderer = mc.worldRenderer;
+        //RenderSystem.enableBlend();
+        //RenderSystem.blendFunc(GlStateManager.SrcFactor.ZERO, GlStateManager.DstFactor.ZERO);
 
-        assert mc.world != null;
-        matrices.push();
-        //BackgroundRenderer.render(camera, tickDelta, mc.world, mc.options.getClampedViewDistance(), mc.world.getSkyBrightness(tickDelta));
-        //BackgroundRenderer.setFogBlack();
-        //RenderSystem.clear(16640, MinecraftClient.IS_SYSTEM_MAC);
+        MinecraftClient client = MinecraftClient.getInstance();
+        assert client.world != null;
 
+        Vec3d colors = client.world.getSkyColor(Objects.requireNonNull(client.getCameraEntity()).getPos(), client.getTickDelta());
+        RenderSystem.setShaderColor((float) colors.x, (float) colors.y, (float) colors.z, 1.0f);
+        //RenderSystem.disableBlend();
 
-        //gameRenderer.renderSky(matrices, matrices.peek().getPositionMatrix(), tickDelta, camera, true, () -> {});
-        matrices.pop();
-    }
+        BufferBuilder buffer = Tessellator.getInstance().getBuffer();
+        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION);
+        renderSides(matrices.peek().getPositionMatrix(), buffer);
 
-    @Override
-    public int getRenderDistance() {
-        return 256;
+        BufferRenderer.drawWithGlobalProgram(buffer.end());
+        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
     }
 }

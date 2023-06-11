@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "textures": {
+    "bottom": "endless_horizons:block/endless_black",
+    "top": "endless_horizons:block/endless_black"
+  }
+}

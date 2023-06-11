@@ -8,7 +8,6 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.AbstractBlock.Settings;
-import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -16,17 +15,15 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
-
 import java.util.EnumMap;
 
 import static net.endless_horizons.EndlessHorizons.MOD_ID;
 
 
 public class Blocks {
-    private static final EnumMap<DyeColor, Block> coloredBlocks = new EnumMap<>(DyeColor.class);
+    public static final EnumMap<DyeColor, Block> coloredBlocks = new EnumMap<>(DyeColor.class);
     public static final TagKey<Block> NO_OUTLINE = TagKey.of(RegistryKeys.BLOCK, new Identifier(MOD_ID, "no_outline"));
     private static final Settings blockSettings = FabricBlockSettings.of(Material.STONE).strength(1.5f, 6.0f).luminance(15).requiresTool();
 
@@ -49,7 +46,6 @@ public class Blocks {
             register(block, color.getName());
             coloredBlocks.put(color, block);
         }
-
         register(EndlessEndBlock, "end");
         register(EndlessSkyBlock, "sky");
 

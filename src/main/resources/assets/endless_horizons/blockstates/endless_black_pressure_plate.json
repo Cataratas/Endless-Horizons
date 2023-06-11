@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
-      "model": "endless_horizons:block/endless_black_pressure_plate_model"
+    "powered=false": {
+      "model": "endless_horizons:block/endless_black_pressure_plate"
+    },
+    "powered=true": {
+      "model": "endless_horizons:block/endless_black_pressure_plate_down"
     }
   }
 }
