@@ -1,9 +1,11 @@
 #version 150
+#moj_import <matrix.glsl>
 
-uniform vec4 ColorModulator;
+uniform sampler2D Sampler0;
+
+in vec4 texProj0;
 out vec4 fragColor;
 
-
 void main() {
-    fragColor = ColorModulator;
+    fragColor = textureProj(Sampler0, texProj0);
 }
