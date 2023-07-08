@@ -1,6 +1,6 @@
 package net.endless_horizons.blocks;
 
-import net.endless_horizons.blocks.end_gateway.EndlessEndBlock;
+import net.endless_horizons.blocks.end.EndlessEndBlock;
 import net.endless_horizons.blocks.sky.EndlessSkyBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;

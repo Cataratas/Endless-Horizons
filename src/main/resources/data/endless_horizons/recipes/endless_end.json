@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " B ",
+    "SBS",
     "BEB",
-    " B "
+    "SBS"
   ],
   "key": {
     "E": {
@@ -11,6 +11,9 @@
     },
     "B": {
       "item": "endless_horizons:endless_black"
+    },
+    "S": {
+      "item": "minecraft:sculk"
     }
   },
   "result": {

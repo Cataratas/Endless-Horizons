@@ -1,11 +1,10 @@
-package net.endless_horizons.blocks.end_gateway;
+package net.endless_horizons.blocks.end;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 public class EndlessEndBlock extends Block implements BlockEntityProvider {
     public EndlessEndBlock(Settings settings) {

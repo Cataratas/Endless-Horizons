@@ -6,7 +6,7 @@ import net.endless_horizons.ModelProvider;
 import net.endless_horizons.blocks.sky.EndlessSkyEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
-import net.endless_horizons.blocks.end_gateway.EndlessEndEntityRenderer;
+import net.endless_horizons.blocks.end.EndlessEndEntityRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.CoreShaderRegistrationCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.gl.ShaderProgram;

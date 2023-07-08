@@ -1,8 +1,7 @@
 package net.endless_horizons;
 
 import net.endless_horizons.blocks.Blocks;
-import net.endless_horizons.blocks.EndlessEntity;
-import net.endless_horizons.blocks.end_gateway.EndlessEndEntity;
+import net.endless_horizons.blocks.end.EndlessEndEntity;
 import net.endless_horizons.blocks.sky.EndlessSkyEntity;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;

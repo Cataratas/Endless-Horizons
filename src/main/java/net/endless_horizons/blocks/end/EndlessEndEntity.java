@@ -1,4 +1,4 @@
-package net.endless_horizons.blocks.end_gateway;
+package net.endless_horizons.blocks.end;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

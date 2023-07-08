@@ -1,14 +1,11 @@
-package net.endless_horizons.blocks.end_gateway;
+package net.endless_horizons.blocks.end;
 
-import net.endless_horizons.blocks.EndlessEntity;
 import net.endless_horizons.blocks.EndlessRenderer;
-import net.endless_horizons.blocks.sky.EndlessSkyEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.*;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import org.joml.Matrix4f;
 
 
 @Environment(EnvType.CLIENT)
