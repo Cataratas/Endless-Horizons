@@ -15,6 +15,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import java.util.EnumMap;
@@ -28,7 +29,7 @@ public class Blocks {
     private static final Settings blockSettings = FabricBlockSettings.of(Material.STONE).strength(1.5f, 6.0f).luminance(15).requiresTool();
 
     public static final EndlessEndBlock EndlessEndBlock = new EndlessEndBlock(blockSettings);
-    public static final EndlessSkyBlock EndlessSkyBlock = new EndlessSkyBlock(blockSettings);
+    public static final EndlessSkyBlock EndlessSkyBlock = new EndlessSkyBlock(blockSettings.sounds(BlockSoundGroup.GLASS));
 
     private static final ItemGroup endlessHorizonsGroup = FabricItemGroup.builder(new Identifier(MOD_ID, "endless_blocks"))
             .icon(() -> new ItemStack(coloredBlocks.get(DyeColor.WHITE)))
