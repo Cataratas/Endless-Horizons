@@ -4,12 +4,13 @@
   "version": "${version}",
   "name": "Endless Horizons",
   "description": "",
-  "authors": [],
+  "authors": ["Cataratas"],
   "contact": {
-    "repo": ""
+    "sources": "https://github.com/Cataratas/Endless-Horizons",
+    "issues": "https://github.com/Cataratas/Endless-Horizons/issues"
   },
   "license": "MIT",
-  "icon": "assets/endless_horizons/icon.png",
+  "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
