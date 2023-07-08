@@ -23,7 +23,7 @@ public class RenderSky {
         client.gameRenderer.setBlockOutlineEnabled(false);
         skyFramebuffer.beginWrite(true);
 
-        renderSky(client, context.matrixStack(), context.projectionMatrix(), context.camera(), context.tickDelta());
+        renderSky(client, context.matrixStack(), context.projectionMatrix(), context.camera(), context.tickDelta(), context.lightmapTextureManager());
 
         skyFramebuffer.endRead(); skyFramebuffer.endWrite();
         client.gameRenderer.setBlockOutlineEnabled(true);
@@ -34,7 +34,7 @@ public class RenderSky {
         skyFramebuffer = new SimpleFramebuffer(w, h, true, MinecraftClient.IS_SYSTEM_MAC);
     }
 
-    private static void renderSky(MinecraftClient client, MatrixStack matrices, Matrix4f projectionMatrix, Camera camera, float tickDelta) {
+    private static void renderSky(MinecraftClient client, MatrixStack matrices, Matrix4f projectionMatrix, Camera camera, float tickDelta, LightmapTextureManager lightmapTextureManager) {
         assert client.world != null;
         Vec3d cameraPos = camera.getPos();
         float viewDistance = client.gameRenderer.getViewDistance();
@@ -59,6 +59,10 @@ public class RenderSky {
             RenderSystem.setShader(GameRenderer::getPositionColorTexLightmapProgram);
             client.worldRenderer.renderClouds(matrices, projectionMatrix, tickDelta, cameraPos.x, cameraPos.y, cameraPos.z);
         }
+
+        RenderSystem.depthMask(false);
+        client.worldRenderer.renderWeather(lightmapTextureManager, tickDelta, cameraPos.x, cameraPos.y, cameraPos.z);
+        RenderSystem.depthMask(true);
 
         matrixStack.pop();
         RenderSystem.applyModelViewMatrix();

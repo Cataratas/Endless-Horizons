@@ -5,3 +5,4 @@ accessible class net/minecraft/client/render/RenderPhase$ShaderProgram
 accessible class net/minecraft/client/render/RenderPhase$TextureBase
 accessible method net/minecraft/client/render/RenderPhase$TextureBase getId ()Ljava/util/Optional;
 accessible method net/minecraft/client/gl/Framebuffer bind (Z)V
+accessible method net/minecraft/client/render/WorldRenderer renderWeather (Lnet/minecraft/client/render/LightmapTextureManager;FDDD)V
