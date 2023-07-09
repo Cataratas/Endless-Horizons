@@ -31,7 +31,7 @@ public class Blocks {
     public static final RegistryKey<ItemGroup> endlessHorizonsGroup = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID, "endless_blocks"));
     private static final Settings blockSettings = FabricBlockSettings.create().strength(1.5f, 6.0f).luminance(15).requiresTool();
 
-    public static final EndlessEndBlock EndlessEndBlock = new EndlessEndBlock(blockSettings);
+    public static final EndlessEndBlock EndlessEndBlock = new EndlessEndBlock(blockSettings.sounds(BlockSoundGroup.STONE));
     public static final EndlessSkyBlock EndlessSkyBlock = new EndlessSkyBlock(blockSettings.sounds(BlockSoundGroup.GLASS));
 
     private static void register(Block block, String name) {
@@ -47,7 +47,7 @@ public class Blocks {
                        .build());
 
         for (var color : DyeColor.values()) {
-            Block block = new Block(blockSettings.mapColor(color.getMapColor()));
+            Block block = new Block(blockSettings.mapColor(color.getMapColor()).sounds(BlockSoundGroup.STONE));
             register(block, color.getName());
             coloredBlocks.put(color, block);
         }
