@@ -5,6 +5,7 @@ import ladysnake.satin.api.event.ResolutionChangeCallback;
 import net.endless_horizons.ModelProvider;
 import net.endless_horizons.blocks.sky.EndlessSkyEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientBlockEntityEvents;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
 import net.endless_horizons.blocks.end.EndlessEndEntityRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.CoreShaderRegistrationCallback;
@@ -40,6 +41,8 @@ public class EndlessHorizonsClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(EndlessEndEntity, ctx -> new EndlessEndEntityRenderer());
         BlockEntityRendererFactories.register(EndlessSkyEntity, ctx -> new EndlessSkyEntityRenderer());
 
+        ClientBlockEntityEvents.BLOCK_ENTITY_LOAD.register(RenderSky::onLoad);
+        ClientBlockEntityEvents.BLOCK_ENTITY_UNLOAD.register(RenderSky::onUnload);
         WorldRenderEvents.LAST.register(RenderSky::render);
         ResolutionChangeCallback.EVENT.register(RenderSky::resetFramebuffer);
 

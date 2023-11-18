@@ -2,21 +2,34 @@ package net.endless_horizons.client;
 
 import com.mojang.blaze3d.platform.GlConst;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.Framebuffer;
 import net.minecraft.client.gl.SimpleFramebuffer;
 import net.minecraft.client.option.CloudRenderMode;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix4f;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
-
+import static net.endless_horizons.EndlessHorizons.EndlessSkyEntity;
 import static net.endless_horizons.client.EndlessHorizonsClient.*;
 
 public class RenderSky {
+    protected static int shouldRenderSky = 0;
+    public static void onLoad(BlockEntity blockEntity, ClientWorld clientWorld) {
+        if (blockEntity.getType() == EndlessSkyEntity) { shouldRenderSky += 1; }
+    }
+
+    public static void onUnload(BlockEntity blockEntity, ClientWorld clientWorld) {
+        if (blockEntity.getType() == EndlessSkyEntity) { shouldRenderSky -= 1; }
+    }
+
     public static void render(WorldRenderContext context) {
+        if (shouldRenderSky <= 0) { return; }
+
         MinecraftClient client = MinecraftClient.getInstance();
         Framebuffer mainFramebuffer = client.getFramebuffer();
 
@@ -69,4 +82,6 @@ public class RenderSky {
         RenderSystem.disableBlend();
         BackgroundRenderer.clearFog();
     }
+
+
 }
